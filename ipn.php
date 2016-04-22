@@ -95,7 +95,7 @@ if (strcmp ($res, "VERIFIED") == 0) {
 	$mail_headers   .= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
 	$mail_to         = "=?UTF-8?B?" . base64_encode($_POST['address_name']) . "?=" . " <" . $_POST['payer_email'] . ">";
 	$mail_subject    = "=?UTF-8?B?" . base64_encode("Transacción Exitosa") . "?=";
-	$mail_body		 = "Hola, " . $_POST['first_name'] . "." . PHP_EOL . PHP_EOL . "Gracias por tu compra de “" . $_POST['item_name'] . "”" . PHP_EOL . "Has invertido $" . $_POST['payment_gross'] . PHP_EOL . PHP_EOL . "Que lo aproveches." . PHP_EOL ."Estamos para servirte.";
+	$mail_body       = "Hola, " . $_POST['first_name'] . "." . PHP_EOL . PHP_EOL . "Gracias por tu compra de “" . $_POST['item_name'] . "”" . PHP_EOL . "Has invertido $" . $_POST['payment_gross'] . PHP_EOL . PHP_EOL . "Que lo aproveches." . PHP_EOL ."Estamos para servirte.";
 	mail($mail_to, $mail_subject, $mail_body, $mail_headers);
 } else if (strcmp ($res, "INVALID") == 0) {
 	$mail_headers    = "From: ORGANIZATION <name@email.com>" . PHP_EOL;
