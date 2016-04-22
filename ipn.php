@@ -88,23 +88,23 @@ $tokens = explode("\r\n\r\n", trim($res));
 $res = trim(end($tokens));
 // evaluate verification status with string comparison
 if (strcmp ($res, "VERIFIED") == 0) {
-	$mail_headers	 = "From: Colectivo Pyme <" . $_POST['receiver_email'] . ">" . PHP_EOL;
-	$mail_headers	.= "Reply-To: Colectivo Pyme <" . $_POST['receiver_email'] . ">" . PHP_EOL;
-	$mail_headers .= "Bcc: Allan Moreno <allanmoreno@live.com>" . PHP_EOL;
-	$mail_headers	.= "MIME-Version: 1.0" . PHP_EOL;
-	$mail_headers	.= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
-	$mail_to			 = "=?UTF-8?B?" . base64_encode($_POST['address_name']) . "?=" . " <" . $_POST['payer_email'] . ">";
-	$mail_subject  = "=?UTF-8?B?" . base64_encode("Transacción Exitosa") . "?=";
+	$mail_headers    = "From: ORGANIZATION <" . $_POST['receiver_email'] . ">" . PHP_EOL;
+	$mail_headers   .= "Reply-To: ORGANIZATION <" . $_POST['receiver_email'] . ">" . PHP_EOL;
+	$mail_headers   .= "Bcc: ADMIN <nama@email.com>" . PHP_EOL;
+	$mail_headers   .= "MIME-Version: 1.0" . PHP_EOL;
+	$mail_headers   .= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
+	$mail_to         = "=?UTF-8?B?" . base64_encode($_POST['address_name']) . "?=" . " <" . $_POST['payer_email'] . ">";
+	$mail_subject    = "=?UTF-8?B?" . base64_encode("Transacción Exitosa") . "?=";
 	$mail_body		 = "Hola, " . $_POST['first_name'] . "." . PHP_EOL . PHP_EOL . "Gracias por tu compra de “" . $_POST['item_name'] . "”" . PHP_EOL . "Has invertido $" . $_POST['payment_gross'] . PHP_EOL . PHP_EOL . "Que lo aproveches." . PHP_EOL ."Estamos para servirte.";
 	mail($mail_to, $mail_subject, $mail_body, $mail_headers);
 } else if (strcmp ($res, "INVALID") == 0) {
-	$mail_headers	 = "From: Colectivo Pyme <info@colectivopyme.com>" . PHP_EOL;
-	$mail_headers	.= "Reply-To: Colectivo Pyme <info@colectivopyme.com>" . PHP_EOL;
-	$mail_headers	.= "MIME-Version: 1.0" . PHP_EOL;
-	$mail_headers	.= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
-	$mail_to			 = "Allan Moreno <allanmoreno@live.com>";
-	$mail_subject  = "Error en la transaccion";
-	$mail_body		 = "Ha ocurrido un error en un proceso de compra." . PHP_EOL . "PayPal IPN response status is “INVALID”" . PHP_EOL . "Email: " . $_POST['payer_email'] . PHP_EOL . "Name: " . $_POST['address_name'] . PHP_EOL . PHP_EOL . $req . PHP_EOL . PHP_EOL . curl_error($ch);
+	$mail_headers    = "From: ORGANIZATION <name@email.com>" . PHP_EOL;
+	$mail_headers   .= "Reply-To: ORGANIZATION <name@email.com>" . PHP_EOL;
+	$mail_headers   .= "MIME-Version: 1.0" . PHP_EOL;
+	$mail_headers   .= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
+	$mail_to         = "ADMIN <name@email.com>";
+	$mail_subject    = "Error en la transaccion";
+	$mail_body       = "Ha ocurrido un error en un proceso de compra." . PHP_EOL . "PayPal IPN response status is “INVALID”" . PHP_EOL . "Email: " . $_POST['payer_email'] . PHP_EOL . "Name: " . $_POST['address_name'] . PHP_EOL . PHP_EOL . $req . PHP_EOL . PHP_EOL . curl_error($ch);
 	mail($mail_to, $mail_subject, $mail_body, $mail_headers);
 }
 
