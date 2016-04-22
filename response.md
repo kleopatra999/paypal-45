@@ -1,3 +1,5 @@
+## Response payload
+
 IPN Variables: https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNandPDTVariables/
 
 ```yaml
