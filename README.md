@@ -2,7 +2,8 @@
 
 ## JS buttons implementation
 
-**Reference:** https://paypal.github.io/JavaScriptButtons/
+- **Reference:** https://github.com/paypal/JavaScriptButtons
+- **Wizard**: https://paypal.github.io/JavaScriptButtons/
 
 - script submits form data to paypal
 	- paypal sends response data to 'transaction page' (data-callback url)
