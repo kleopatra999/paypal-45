@@ -5,6 +5,8 @@
 - **Reference:** https://github.com/paypal/JavaScriptButtons
 - **Wizard**: https://paypal.github.io/JavaScriptButtons/
 
+Process:
+
 - script submits form data to paypal
 	- paypal sends response data to 'transaction page' (data-callback url)
 	- transaction page modifies data and send it back to paypal
